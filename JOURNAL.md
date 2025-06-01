@@ -43,3 +43,36 @@ External Box Test Interfaces
 - 3 Pin Banana Plug (FIE) output port to test external hit machines
 
 **Total time spent: 3h**
+
+## June 1st: Research into individual weapon checks
+
+I continued researching how to best implement the tests on individual weapons. The key requirements of this testing mode must include:
+
+## Validation of resistance
+
+While fairly simple, all equipment has specific resistance ratings that it must remain under to perform properly. If there is any increase in resistance due to rust or microscopic fractures, it can lead to the incorrect detection of a hit. This often manifests through weapons registering as off target in foil or false hits in eppe. By checking these factors, it is possible to diagnose a broken/worn out tip or a poor body wire connection (often stemming from collapsed plugs).
+
+Required maximum resistances are:
+
+- The bodywire must have a resistance of 1 ohm
+- The spool must have a resistance of 3 ohms
+- Weapon resistance of 2 ohms
+- Cable resistance of 2.5 ohms
+
+## Hit registration
+
+In order to test that weapons are wired correctly, it must be possible to check continuity between the wires going to the button. This allows verification that hits will register. For foil and sabre, it is also necessary to check continuity to the jacket of the opponent. This is because foil and sabre only register 'valid' hits on a specific section of the body and all other hits must be registered as a separate off-target signal.
+
+Within documentation, each pin of the standard connector is only referred to by tis distance from the centre. I will define pinout numbers for them to simplify the creation of documentation and schematics throughout this project.
+
+![Pinout Diagram for 3 Pin FIE Connector](3-Pin-Pinout.png)
+
+### Pin Usage
+
+| Weapon | Pin 1 | Pin 2 | Pin 3 |
+| ------ | ----- | ----- | ----- |
+| Foil   | Lame | Tip | Weapon/Piste |
+| Eppe   | Direct Wire | Other Wire | Weapon/Piste |
+| Sabre  | Lame | Tip | Weapon/Piste |
+
+**Total time spent: 2h**
