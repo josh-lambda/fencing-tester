@@ -1,0 +1,5 @@
+CATAGORY  , ITEM              , UNIT COST, QUANTITY, TOTAL COST, SOURCE                                                                , NOTE
+COMPONENTS, G6K-2P-Y          , 1.00-1.50,        3, 3.00-5.00 , Aliexpress: (?)https://www.aliexpress.com/item/1005006120071610.html  , I have been unable to find QTY<10 and am still looking for a supplier
+          , 1N4148 - Pack of 5, 0.61     ,        1, 0.61      , https://www.jaycar.com.au/1n4148-1n914-signal-diode-pack-of-5/p/ZR1100, Pack of 5; Aliexpress has cheaper per unit BUT for higher quantity. Jaycar saves 0.50 & shipping time when only buying 3.
+          , BC547             , 0.19     ,        3, 0.57      , https://www.jaycar.com.au/bc547-npn-transistor/p/ZT2152               , Aliexpress has cheaper per unit BUT for higher quantity. Jaycar saves 0.50 & shipping time when only buying 3.
+          , 1k Resistor       , 0.00     ,        3, 0.00      , Already owned                                                         , 
