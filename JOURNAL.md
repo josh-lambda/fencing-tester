@@ -65,7 +65,7 @@ In order to test that weapons are wired correctly, it must be possible to check 
 
 Within documentation, each pin of the standard connector is only referred to by its distance from the centre. I will define pinout numbers for them to simplify the creation of documentation and schematics throughout this project.
 
-![Pinout Diagram for 3 Pin FIE Connector](3-Pin-Pinout.png)
+![Pinout Diagram for 3 Pin FIE Connector](images/3-Pin-Pinout.png)
 
 #### Pin Usage
 
@@ -93,4 +93,18 @@ In order to correctly identify target/vs off target for foil and eppe, it will b
 
 Resistance checking is a key feature in troubleshooting. However, implementing it with minimal components is challenging. Because of this, I have decided to limit resistance checking to just the body wire. I believe this is reasonable to prevent score creep and because these are the most commonly troubleshooted components. Since this gives us a very small range of resistance, it will be simple to include a voltage divider that compares if the wire is over the set legal resistance value with a comparison resistor. Having a small range of resistances that are being tested also removes the key issue of using a voltage divider which is that they get increasingly inaccurate as you move away from the known comparison value.
 
-**Total time spent: 2h**
+### Implementation of test signal output
+
+In order to test external equipment capable of running matches with precise FIE certified timings, it is also necessary to add a signal generator. This can be managed by plugging a 3 pin into a strip and using relays to close/open the pins depending on the selected weapon. Relays are required as there is no standardised voltage that boxes operate on and some use more advanced ground separation between the fencers to prevent issues with foil. However, the relays can be rated for only a couple of volts as must boxes use fairly low logic levels.
+
+### Hardware for the test signal output
+
+Because of the variability of fencing boxed, the relays need to be bi-directional DC. This eliminates SSRs from being an option. Realistically, I need 3 SPST relays with a 3.3V coil level and a low voltage low current load. From this, I have moved towards using miniature mechanical relays but need to decide what pole type to use - DPDT and SPDT relays are often more common and depending on the component could be cheaper than low quantity SPST.
+
+As a result of these factors I have decided on the G6K as the relay for this project - specifically the G6K-2P-Y (through hole) as I cannot mount surface mount components at the moment and do not plan on getting PCB assembly (this may change after i select the microcontroller). This will require the addition of a transistor to prevent the risk of overloading the GPIO pins and a blowback diode. After completing a relay module the schematic looks like this:
+![Pinout Diagram for 3 Pin FIE Connector](images/relayModule.png)
+
+Adding in the connections for both foil and eppe along side a connection to the opponents lame it looks something like this:
+![Pinout Diagram for 3 Pin FIE Connector](images/fullTestRelay.png)
+
+**Total time spent: 4h**
