@@ -63,7 +63,7 @@ Required maximum resistances are:
 
 In order to test that weapons are wired correctly, it must be possible to check continuity between the wires going to the button. This allows verification that hits will register. For foil and sabre, it is also necessary to check continuity to the jacket of the opponent. This is because foil and sabre only register 'valid' hits on a specific section of the body and all other hits must be registered as a separate off-target signal.
 
-Within documentation, each pin of the standard connector is only referred to by tis distance from the centre. I will define pinout numbers for them to simplify the creation of documentation and schematics throughout this project.
+Within documentation, each pin of the standard connector is only referred to by its distance from the centre. I will define pinout numbers for them to simplify the creation of documentation and schematics throughout this project.
 
 ![Pinout Diagram for 3 Pin FIE Connector](3-Pin-Pinout.png)
 
@@ -74,5 +74,13 @@ Within documentation, each pin of the standard connector is only referred to by 
 | Foil   | Lame | Tip | Weapon/Piste |
 | Eppe   | Direct Wire | Other Wire | Weapon/Piste |
 | Sabre  | Lame | Tip | Weapon/Piste |
+
+### Hit detection
+
+The criteria for registering a hit differ between weapons.
+
+In foil and sabre, pins 2 & 3 must be closed on the weapon, and Pin 2 must be connected to the opponents pin 1 (Via the opponents conductive jacket). If pins 2 & 3 are closed but the circuit through the opponent's jacket is not completed it is counted as 'off-target'. In this case no point is awarded, but the bout must still be halted and so it must be detectable and displayed. Foil and sabre have all connections normally open.
+
+In eppe pins 1 & 2 are normally closed, and a hit is registered when the connection is opened. Because eppe does not have a target area, Pin 3 is used to detect connection to the floor or opponents weapon. If the weapon hit the floor instead of the opponent, the hit will not register.
 
 **Total time spent: 2h**
