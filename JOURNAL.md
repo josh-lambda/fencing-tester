@@ -54,7 +54,7 @@ While fairly simple, all equipment has specific resistance ratings that it must 
 
 Required maximum resistances are:
 
-- The bodywire must have a resistance of 1 ohm
+- The body wire must have a resistance of 1 ohm
 - The spool must have a resistance of 3 ohms
 - Weapon resistance of 2 ohms
 - Cable resistance of 2.5 ohms
@@ -86,5 +86,11 @@ In eppe pins 1 & 2 are normally closed, and a hit is registered when the connect
 ### Implementation of hit detection
 
 Hit detection will be implemented with a single 3 pin connector attached to the body wire and weapon. By raising pin 2 to high and connecting pins 1 & 3 to input ports on the microcontroller, it is possible to check which circuits are complete and thus register a hit in testing. In order to have this adapt to the different weapons, a weapon select button will be required to change the logic between foil, eppe, and sabre.
+
+In order to correctly identify target/vs off target for foil and eppe, it will be necessary to include a metal tab that simulates the connection to the lame.
+
+### Implementation of resistance checking
+
+Resistance checking is a key feature in troubleshooting. However, implementing it with minimal components is challenging. Because of this, I have decided to limit resistance checking to just the body wire. I believe this is reasonable to prevent score creep and because these are the most commonly troubleshooted components. Since this gives us a very small range of resistance, it will be simple to include a voltage divider that compares if the wire is over the set legal resistance value with a comparison resistor. Having a small range of resistances that are being tested also removes the key issue of using a voltage divider which is that they get increasingly inaccurate as you move away from the known comparison value.
 
 **Total time spent: 2h**
