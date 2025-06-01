@@ -48,7 +48,7 @@ External Box Test Interfaces
 
 I continued researching how to best implement the tests on individual weapons. The key requirements of this testing mode must include:
 
-## Validation of resistance
+### Validation of resistance
 
 While fairly simple, all equipment has specific resistance ratings that it must remain under to perform properly. If there is any increase in resistance due to rust or microscopic fractures, it can lead to the incorrect detection of a hit. This often manifests through weapons registering as off target in foil or false hits in eppe. By checking these factors, it is possible to diagnose a broken/worn out tip or a poor body wire connection (often stemming from collapsed plugs).
 
@@ -59,7 +59,7 @@ Required maximum resistances are:
 - Weapon resistance of 2 ohms
 - Cable resistance of 2.5 ohms
 
-## Hit registration
+### Hit registration
 
 In order to test that weapons are wired correctly, it must be possible to check continuity between the wires going to the button. This allows verification that hits will register. For foil and sabre, it is also necessary to check continuity to the jacket of the opponent. This is because foil and sabre only register 'valid' hits on a specific section of the body and all other hits must be registered as a separate off-target signal.
 
@@ -67,7 +67,7 @@ Within documentation, each pin of the standard connector is only referred to by 
 
 ![Pinout Diagram for 3 Pin FIE Connector](3-Pin-Pinout.png)
 
-### Pin Usage
+#### Pin Usage
 
 | Weapon | Pin 1 | Pin 2 | Pin 3 |
 | ------ | ----- | ----- | ----- |
@@ -75,12 +75,16 @@ Within documentation, each pin of the standard connector is only referred to by 
 | Eppe   | Direct Wire | Other Wire | Weapon/Piste |
 | Sabre  | Lame | Tip | Weapon/Piste |
 
-### Hit detection
+#### Hit detection
 
 The criteria for registering a hit differ between weapons.
 
 In foil and sabre, pins 2 & 3 must be closed on the weapon, and Pin 2 must be connected to the opponents pin 1 (Via the opponents conductive jacket). If pins 2 & 3 are closed but the circuit through the opponent's jacket is not completed it is counted as 'off-target'. In this case no point is awarded, but the bout must still be halted and so it must be detectable and displayed. Foil and sabre have all connections normally open.
 
 In eppe pins 1 & 2 are normally closed, and a hit is registered when the connection is opened. Because eppe does not have a target area, Pin 3 is used to detect connection to the floor or opponents weapon. If the weapon hit the floor instead of the opponent, the hit will not register.
+
+### Implementation of hit detection
+
+Hit detection will be implemented with a single 3 pin connector attached to the body wire and weapon. By raising pin 2 to high and connecting pins 1 & 3 to input ports on the microcontroller, it is possible to check which circuits are complete and thus register a hit in testing. In order to have this adapt to the different weapons, a weapon select button will be required to change the logic between foil, eppe, and sabre.
 
 **Total time spent: 2h**
