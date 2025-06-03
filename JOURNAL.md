@@ -116,3 +116,39 @@ I have begun putting the components from the schematic so far into the BOM. I ha
 The main thing I am unsure of is sourcing - particularly given the request to go through the cheapest supplier. This is a request I fully agree with but am unsure of how to best implement. Aliexpress has far cheaper prices per unit for like 100pcs but since I only need three getting it for a much worse price from a supplier within australia (who is renowned for having bad unit prices) ends up being slightly cheaper (around USD0.50) to buy 3pcs relative to the 100pcs on Aliexpress.
 
 **Total time spent: 4h**
+
+## June 3rd: Component research, new schematics
+
+I continued researching suppliers for some of the components I am using. I have also continued developing the schematic for the resistance measurements. Furthermore, I worked on implementing the internal weapon tester. The internal tester will allow this to be used to check wiring of a weapon. While full competition boxes can be used for this weapon testing functionality, a unit will normally set you back a couple of thousand dollars meaning that incorporating this function into a smaller, more portable, and cost efficient package will be a valuable tool for diagnosis and performing repairs away from the piste.
+
+### Resistance Checker
+
+Previously, I settled on using a voltage divider based system to measure the resistance of components. This was because of the small form factor, low cost, and reduced complexity - especially when administrating a pass/fail against a set value.
+
+The feature will focus on testing the body wire as it is the most common and exposed point of failure. This means it is a simple pass/fail to check the resistance is under one ohm. To get the result, a 1 ohm resistor will be places parallel to the wire and the proportion of voltage that takes the wire path can be used to calculate the resistance. A 1 ohm resistor is chosen for reference as the closer the reference resistor is to the value we are attempting to measure, the more accurate the reading is. This means that while this is not the most accurate way of measuring a wide range of resistances it will be more than sufficient for our purpose of giving a pass/fail with some indication of what the resistance of the body wire could be.
+
+In a voltage divider, the output voltage can be calculated using:
+*V*~out~=*V*~in~*R*~2~÷(*R*~1~+*R*~2~)
+
+Since we are measuring the output voltage, we can rearrange the equation to have *R*~2~ as the subject:
+*R*~2~=*R*~1~((*V*~in~/*V*~out~)-1)^-1^
+
+Within our system, all other variables are known (provided we use an analogue port to measure *V*~out~):
+
+| Variable | Value |
+| -------- | ----- |
+| *V*~in~  | 3.3V  |
+| *V*~out~ | DIO   |
+| *R*~1~   | 1Ω    |
+| *R*~2~   | ?Ω    |
+
+To achieve this, the circuit will look something like this:
+![Image of voltage divider circuit](images/voltageDivider.png)
+
+However, one important thing to note is that R2 will be out body wire. As such it will actually be connected through a series of ports.
+![Image of voltage divider circuit with body wire](images/voltageDividerWire.png)
+
+When we chain three of them to access all of the wires:
+![Image of all three voltage divider circuits with body wires and GPIO pins](images/voltageDividerGPIOx3.png)
+
+**Total time spent: 2h**
