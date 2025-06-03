@@ -151,8 +151,32 @@ However, one important thing to note is that R2 will be out body wire. As such i
 When we chain three of them to access all of the wires:
 ![Image of all three voltage divider circuits with body wires and GPIO pins](images/voltageDividerGPIOx3.png)
 
+### Weapon tester
+
+The weapon testing portion is fairly simple. While complete fencing computers need to pay strict attention to the timing of the match and the interval between hits, for testing weapons the high precision is superfluous. In order to identify that all wires are connected correctly, we will apply a voltage to pin 2 and then read which of the other wires the voltage is fed to. It is also important to include a reference to the opponents lame to allow for full foil/sabre testing. This role can be fulfilled by a metal tab on the housing.
+
+![Concept schematic for weapon testing](images/basicWeaponTest.png)
+
+However, this creates a problem where we have nine ports just for testing the wire and weapon. In order to aid this situation, we can try to take advantage of the GPIO functionality of the esp32. For this, I will be targeting the ground side of the voltage divider module. This is because it will be isolated from the high side in all cases other than resistance testing.
+
+Remember how earlier, it was decided to use DPDT relays as SPST ones are hard to find and more expensive? This is going to be of great benefit.
+
+While there is probably a fancy way of implementing something like this using diodes, transistors, and differently configured GPIO pins on the ground side, we already have the relays so we may as well use them.
+
+By linking the weapon port pins to the relays we now have the ability to switch each pin between two paths. This will allow the single set of connectors to be switched between the weapon testing circuit and the voltage divider circuit.
+
+The resistance of the relays is negligible and so will have little impact on the resistance measurements especially at the precision we are dealing with. If any interference occurs, it will also cause the body wire to turn a false positive for high resistance which is teh preferable failure mode as a false negative would potentially further complicate troubleshooting.
+
+After implementing these changes and unifying the schematics we are left with something like this (I know these are not the proper GPIO pins yet. I am leaving them generic until a microcontroller is decided upon):
+
+![Schematic of the relays, voltage dividers, and weapon tester integrated together](images/integrated1.png)
+
+### Plans for additional relays
+
+I would also like to consider how the two ports used on the signal generator can be reduced. Currently I plan on taking the connector only used for the opponents lame and using an additional relay to switch it between the function generator and the high side of the voltage divider. However, it may be necessary to use two relays (4 switches) in order to prevent back feed issues into the other lines when testing. This issue is unlikely to change the results of tests BUT could damage the external box being tested, and as such I will proceed with caution. While this change would increase the PCB footprint, I think saving a full connector will be worth it as adding connectors not only increases the PCB size but also its perimeter by at least 50mm on a single side.
+
 ### BOM Update
 
 I have continued looking into suppliers for the components from last entry. I have also added the voltage divider resistors to the BOM.
 
-**Total time spent: 2h**
+**Total time spent: 3.5h**
