@@ -151,4 +151,8 @@ However, one important thing to note is that R2 will be out body wire. As such i
 When we chain three of them to access all of the wires:
 ![Image of all three voltage divider circuits with body wires and GPIO pins](images/voltageDividerGPIOx3.png)
 
+### BOM Update
+
+I have continued looking into suppliers for the components from last entry. I have also added the voltage divider resistors to the BOM.
+
 **Total time spent: 2h**
