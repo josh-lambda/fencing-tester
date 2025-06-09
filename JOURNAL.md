@@ -179,4 +179,10 @@ I would also like to consider how the two ports used on the signal generator can
 
 I have continued looking into suppliers for the components from last entry. I have also added the voltage divider resistors to the BOM.
 
+## June 5th: Connector Revisions
+
+I have added the extra relays to the schematic. This allows the auxiliary port's connections to be switched between the signal generator and the high side of the voltage dividers. This eliminates another set of connectors bringing the total down to 3 sets. While I would love to bring this down to two, adding another three relays and having to add two steps in routing signals does not currently seem worth it.
+
+I have also added an esp symbol to the schematic. This is not the final microcontroller I plan on using and is mostly there to avoid the net errors from KiCad.
+
 **Total time spent: 3.5h**
