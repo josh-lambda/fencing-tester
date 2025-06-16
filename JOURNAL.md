@@ -179,10 +179,43 @@ I would also like to consider how the two ports used on the signal generator can
 
 I have continued looking into suppliers for the components from last entry. I have also added the voltage divider resistors to the BOM.
 
+**Total time spent: 2h**
+
 ## June 5th: Connector Revisions
+
+### Additional relays
 
 I have added the extra relays to the schematic. This allows the auxiliary port's connections to be switched between the signal generator and the high side of the voltage dividers. This eliminates another set of connectors bringing the total down to 3 sets. While I would love to bring this down to two, adding another three relays and having to add two steps in routing signals does not currently seem worth it.
 
-I have also added an esp symbol to the schematic. This is not the final microcontroller I plan on using and is mostly there to avoid the net errors from KiCad.
+### Other changes to schematic
 
-**Total time spent: 3.5h**
+I have also added an espS3 symbol to the schematic. This is not the final microcontroller I plan on using and is mostly there to avoid the net errors from KiCad. Over the next couple of days, I plan on selecting the final microcontroller.
+
+**Total time spent: 1h**
+
+## June 15th
+
+### Selecting Microcontroller
+
+In order to complete the rest of the schematic including IO, displays and charging/batteries I will need to select the microcontroller. I am currently looking at an esp32 based controller, but need to define the technical requirements.
+
+Bellow are the requirement for the project based on the current schematic and plans:
+
+|          | Requirements  |
+| -------- | ------------  |
+| Wireless | None          |
+| COMMs    | Serial, I^2^C |
+| DIO      | 12 Pins       |
+| Power    | Low Power     |
+
+I intend on using a usb port to facilitate charging. If the selected controller supports USB, the same port will be used to program it.
+
+The main options I am considering are the ESP32-S3, ESP32-C3, and ESP32-C6. The the S3 has greater processing power and USB at the disadvantage of significantly higher (up to 2x) power draw during sleep. This may have a significant impact on battery life. The C3 has improved power draw, but lacks inbuilt ROM. The C6 has the best battery performance of all options. However, it also has limited processing power.
+
+Reflecting upon the needs of the system, the computational workload will be minimal - mostly setting GPIO values with no background tasks or wireless functionality/data transmission. Because of this, I am choosing to proceed using the C6. Other than processing power, it has few limitations over the C3 for this use case and because we are not overly concerned by how quickly it can tell an LCD to draw a rectangle even this point is fairly minimal. The C6 also has the advantage of a slightly smaller profile.
+
+From the C6, it is then needed to consider using it as an SOC or a module. While an SOC provides greater customization regarding the chipset's function, the range of module options have several advantages. These include lower development time, and included ROM packaging.
+
+Because of this, I am considering using either the ESP32-C6-MINI-1U or the TinyC6 board from unexpected maker, with the benefit of the later being built in charging circuitry/PMIC. With the MINI module, the U variant would be selected due to its decreased size from elimination of the PCB antenna - a change that does not effect this project due to its lack of wireless capabilities. However, the footprint & packaging of the TinyC6 are non-ideal as it is dependant on jumper pins for mounting which would increase the full units size even more than the bulky banana jacks already are. As such, I will continue planning around using the ESP32-S6.
+
+**Total time spent: 3h**
