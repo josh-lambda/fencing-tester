@@ -219,3 +219,54 @@ From the C6, it is then needed to consider using it as an SOC or a module. While
 Because of this, I am considering using either the ESP32-C6-MINI-1U or the TinyC6 board from unexpected maker, with the benefit of the later being built in charging circuitry/PMIC. With the MINI module, the U variant would be selected due to its decreased size from elimination of the PCB antenna - a change that does not effect this project due to its lack of wireless capabilities. However, the footprint & packaging of the TinyC6 are non-ideal as it is dependant on jumper pins for mounting which would increase the full units size even more than the bulky banana jacks already are. As such, I will continue planning around using the ESP32-S6.
 
 **Total time spent: 3h**
+
+## July 1st
+
+### Building out interfaces and revisiting hardware definitions
+
+Following the work selecting a controller previously, I am revisiting the requirements of the project to ensure that everything is still in alignment. The core functionalities of:
+
+- Resistance testing
+- Weapon testing
+- External signal generation
+
+were outline previously, and have all been addressed so far.
+
+As mentioned at the start of the project the qualities expected for the device included
+
+> **Weapon & Fencer Interfaces**
+> - Body wire connector - 3 Pin Banana Plug (FIE)
+> - Eppe weapon connector - 3 Pin Banana Plug (FIE)
+> - Foil/sabre weapon connector - 2 Pin Banana Plug (FIE)
+> - Ground tab - strip of metal to attach lame clip
+> 
+> **User Interfaces**
+> - Weapon Selection
+> - Mode Cycle
+> - Screen - For output of test information & manual test feedback
+> 
+> **External Box Test Interfaces**
+> - 3 Pin Banana Plug (FIE) output port to test external hit machines
+
+So far, we have been able to reduce the 4 weapon/strip connectors down two 3 connectors by using an additional set of relays to make one of the ports multi-functional. This was determined to be worth the extra space for relays as teh extra connector's size impact was restricted by the housing perimeter not the area, and as such was more problematic. However, adding even more relays to reduce down to two connectors would go past the point of returns.
+
+Regarding the rest of the interfaces, the weapon selection will be fulfilled by a tri-pole switch with mode functionality being served by a button. This is because while weapon is a fixed set of three options, mode may change with software versions or require additional functions such as a long hold implemented in the future. From these definitions, it will require an additional three GPIO connections to connect the button & switch peripherals (1 for the button. Two for the extreme poles of the switch with the centre pole detected by absence of both other poles).
+
+Regarding the screen interface, I am currently targeting an I2C based display. While this will not provide teh greatest display quality, it will ensure that it allows for a small form factor and minimise its cost in GPIO pins. This will still bring the total GPIO pins up to 17. This stays within the C6 mini's capability of 22 GPIO pins, while leaving room for USB communications for programming.
+
+### Updates to the schematic
+
+From this, I have updated the references in the testing schematic to include the ESP32-C6-MINI-1 (I will have to make a footprint for the U variant later). I have also started making the changes to include the USB communications. I have also added the switch and button for reference.
+
+In adding the USB connection, it powers the device from 5v. This will require a regulator to step down the voltage to 3.3v to power the esp. In order to reduce complexity I am (at least for the time being) discontinuing consideration of a battery power option to allow for the relays to be put on the 5v side of the regulator, reducing its current requirements.
+
+For the voltage regulator, I have begun working with the TPS62840 as it meets the current requirements of the device once accounting for relays and displays while providing ample room for transitioning to battery in the future (including a disable mode that could be integrated with a power sequence). After adding the inductor and smoothing caps the schematic for it looks something like this:
+![Schematic of voltage regulator module](images/voltageRegulator.png)
+
+Hooking up the USB port, we obtain something like the image bellow. Importantly, the VCONN line is disconnected as it is only used by the host device to detect and eCable. The 5.1k resistor on the CC line should indicate that the device wants to draw more than the 100-500mA of the default spec and instead tell it to draw up to 3A at 5V. The data lines get connected to the ESP32 C6 and the 5V source gets fed into our converter.
+![Image of USB-C port](images/usbPort.png)
+
+This brings the full schematic to something like this:
+![Full Schematic progress update](images/schematicUpdate.png)
+
+**Total time spent: 4h**
