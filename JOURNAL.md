@@ -270,3 +270,42 @@ This brings the full schematic to something like this:
 ![Full Schematic progress update](images/schematicUpdate.png)
 
 **Total time spent: 4h**
+
+## July 2nd
+
+### Revising hardware
+
+Yesterday, I implemented the usb port and voltage regulators. However, the usb port's shield was fully tied to ground. This is improper practice and could lead to issues if there is a difference is static or ground references when cables are connected. It also means it fails to provide proper shielding. As such, I have replaced the tie with a resistor and capacitor coupled to prevent any issues.
+![Image of revised USB port](images/usbImage2.png)
+
+### Relay setup
+
+After adding in the voltage regulation and usb 5v rail yesterday, it is time to reconsider the diver circuitry for the relays. As we now have a large 5v allowance and smaller 3.3v circuit, we should move the relays to the larger budget 5v rail. As the relays already have a transistor driver setup, we can just change the voltage source and swap the relays for the 5v variant without having to add any new components.
+
+Swapping out the circuitry, each module will resemble something like this:
+![Revised relay module](images/relayModuleNew.png)
+
+### Buttons & switches
+
+Additionally, it is important to finally add a power switch to the board. This will enable the esp to be turned off, as well as pull the enable pin high. If the enable pin is not pulled high, the board will never turn on.
+![Power switch](images/powerSwitch.png)
+
+I previously addressed the fact we would need to have a weapon select switch and function button. Let's address the weapon switch. It will need to be a triple switch, taking two output GPIOs for full signal. In order to maintain proper signal integrity, there will also need to be pulldown resistors on the inputs.
+
+This will produce a input matrix such as:
+
+| Weapon | A | B |
+| ------ |---|---|
+| 1. Eppe | ✅ | ❌ |
+| 2. Foil | ❌ | ❌ |
+| 3. Sabre | ❌ | ✅ |
+
+![Weapon select diagram](images/weaponSelect.png)
+
+Finally, the use/mode button looks something like this, requiring a pull down to ensure clear readings.
+![Mode button](images/modeBtn.png)
+
+After rearranging the GPIO pins to allow for I2C to be accessed, the full schematic looks like this:
+![Full schematic update image](images/schematicUpdate2.png)
+
+**Total time spent: 1.5h**
