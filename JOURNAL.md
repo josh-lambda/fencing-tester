@@ -308,4 +308,14 @@ Finally, the use/mode button looks something like this, requiring a pull down to
 After rearranging the GPIO pins to allow for I2C to be accessed, the full schematic looks like this:
 ![Full schematic update image](images/schematicUpdate2.png)
 
-**Total time spent: 1.5h**
+### Component Selection
+
+I have begun working through the schematic planning the physical outline of the board. This has included finding suppliers and settling on footprints for the capacitors, inductors, etc. Some of these have been updated in the BOM, but no visible changes have been make to the schematic (footprints will become evident when doing board layout).
+
+I have also revisited the footprint of the resistors, and found a supplier for almost all the values I need. There is just the 267k resistor remaining, which I don't want to round on as it is for setting the output voltage of the regulator.
+
+After this, teh PCB is starting to take shape. All that remains is fixing the layout of the ESP to remove the antenna keepouts (I am using the non wireless variant), add footprint for the voltage regulator, and fix up the body wire plugs. After that the only thing left to do is the screen.
+
+![Footprints so far...](images/footprintProgress.png)
+
+**Total time spent: 3h**
