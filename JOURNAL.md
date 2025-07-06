@@ -314,8 +314,25 @@ I have begun working through the schematic planning the physical outline of the 
 
 I have also revisited the footprint of the resistors, and found a supplier for almost all the values I need. There is just the 267k resistor remaining, which I don't want to round on as it is for setting the output voltage of the regulator.
 
-After this, teh PCB is starting to take shape. All that remains is fixing the layout of the ESP to remove the antenna keepouts (I am using the non wireless variant), add footprint for the voltage regulator, and fix up the body wire plugs. After that the only thing left to do is the screen.
+After this, the PCB is starting to take shape. All that remains is fixing the layout of the ESP to remove the antenna keepouts (I am using the non wireless variant), add footprint for the voltage regulator, and fix up the body wire plugs. After that the only thing left to do is the screen.
 
 ![Footprints so far...](images/footprintProgress.png)
 
 **Total time spent: 3h**
+
+## July 6th
+
+### Revisiting power management IC
+
+Currently, the final barriers to completing the board files are sourcing the voltage management IC and the screen (the screen will impact the form factor of the device). With the currently selected IC, I need to find a supplier and check availability. As it is name brand TI, there are no clones on Aliexpress. Looking through other providers, the only way to get a hnd solderable variant would be to go direct through TI or Mouser. As I already need PCBA due to the ESP32 C6, I also investigated JLC's cost for the component.
+
+In my research, I also came across the TPS62849 which provides a fixed output without needing the extra resistor. This was also advantageous but was not available from individual suppliers as a hand solderable variant. Looking at ordering from JLC as part of the package, it is no cheaper than ordering direct from a name brand supplier :(. This is because of the upcharge for Extended list parts and extra cost associated with their reel swap charges. This gives A$2.50 for the ...49 and A$1.40 for the 40.
+
+I have also found that the hand solderable variant just is literally not produced for the 3.3 version of the chip, only for the 1.55v version. As such, I will be progressing using the PCBA variant from JLC as it was about as good a price I could find elsewhere. The updated schematic looks something like this:
+
+![New voltage schematic](images/newVoltage.png)
+
+Handily, there is also a recommended board layout to use when doing the board layout. I have included it here so I don't forget.
+![Example footprint](images/exampleVoltageFootprint.png)
+
+**Total time spent: 1.5h**
