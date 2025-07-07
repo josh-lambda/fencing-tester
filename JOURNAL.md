@@ -336,3 +336,36 @@ Handily, there is also a recommended board layout to use when doing the board la
 ![Example footprint](images/exampleVoltageFootprint.png)
 
 **Total time spent: 1.5h**
+
+## July 7th
+
+### Revisiting power management IC (Again)
+
+Reflecting on presious logs, I think I've placed too much importance on overdesigning the load capacity of the 3.3v rail. After doing proper analysis of the components in using, the full power draw should not come to more than 800mA, meaning I am fine to use a sub 1A supply. This dramatically reduced the ease of implementation.
+
+Because of this I have changed to the AMS1117-3.3. This has advantages of
+
+- Fixed 3.3 output
+- Available component
+- Hand solderable
+- No extended PCBA
+- No inductors
+
+The updated implementation is sooooo much nicer and is no longer stupidly overkill or complicated.
+![Schematic of AMS1117-3.3](images/newNewVoltageGood.png)
+
+### Looking at microcontroller
+
+Looking at the ESP32 C6, the MINI module has a key issue regarding its construction. All of the contacts are on the back of the board. This means that with my current setup, I have no way of soldering it onto the board other than using PCBA. As I would like to avoid the hassle and cost of PCBA, I am investigating moving to the non mini variant as it has the option to hand solder it to your board.
+
+Changing to the non mini ESP32-C6-WROOM-1U-N8 significantly reduces costs from the PCBA charges as well as simplifies the assembly process.
+![New ESP Schematic](images/newESP.png)
+
+I have also added a header to connect the display to:
+![Display power & I2C connector](images/display.png)
+
+From this and my research onto the physical shape of the display, I have begun to flesh out a possible layout for the board:
+![Early board design](images/earlyBoard.png)
+![Early render of board](images/early3D.png)
+
+**Total time spent: 2.5h**
