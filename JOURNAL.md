@@ -369,3 +369,39 @@ From this and my research onto the physical shape of the display, I have begun t
 ![Early render of board](images/early3D.png)
 
 **Total time spent: 2.5h**
+
+## July 9th
+
+### Connectors
+
+Connectors for the system include a USB port for power & communications, three sets of wire connections and the lame tab. All three wire connectors will use the standardised FIE plug spacing illustrated earlier, however this does not account for the weapon side of a foil body wire. To account for the foil body wire, one of the inputs will need to be duplicated with a foil connection that is electrically continuous with the three pin one.
+
+The USB connector will be USB-C to take advantage of the greater power delivery it offers.
+
+The banana plug connectors will be 4mm with the smaller of the foil/sabre pair being 3mm. This varies due to tolerances in equipment manufacturing but works as a guideline. The 4mm plugs are highly standard within a variety of applications and so are easily available on Aliexpress. However, the 3mm plugs are not. As such, I anticipate that I may have to use a 3.5mm audio jack with all the pins bridged to approximate this purpose. The other option is to use an RCA plug as their inner pin has an OD of around 3.2mm. RCA plugs are really easy to find as TH solderable components. However, their use of an external pin makes it hard to adapt and align to this use case as both plugs need to be aligned.
+
+I am currently looking at two main options for the 4mm plug. One is possible to solder to and leave a wire to the PCB. The other cannot be soldered to and needs a 6mm blade crimp to use. I am leaning towards using the crimp based solution as the solder option has a zinc coating on it. While many pieces of fencing gear use zinc coatings they are an absolute pain to solder to. Difficulty soldering would likely let the piece heat up fully and melt the connector. So I will stick with the crimp to save the pain and possible failure. It is even possible to gain almost enough measurements of the product form the Aliexpress page to translate it into CAD.
+
+![4mm plug. Opt 1](images/plug1.png)
+
+However, this has the key issue of using a really shallow connector. This is likely to cause issues when inputting the prongs of the wire. In contrast, an alternate connector I have found has a much bigger connector hole. It also has the advantage of being through hole which improves mounting and removes the need for crimps. I have approximated it to something like this:
+
+![4mm Plug PCB mount](images/plug2.png)
+
+I have also created a KiCad footprint for both the individual plug and the whole three pin fencing connecotr.
+
+![Fencing connector footprint](images/3pinFootprint.png)
+
+Now that I have a footprint for the weapon connectors, I can add them all into the draft of the PCB. This starts to express why I was so eager to reduce the number of connectors as much as possible. My current plan is to have them one each side and leave one side for the USB-C port and weapon select switch.
+
+![This is too big...](images/big.png)
+
+![This is the ideal layout ish](images/plugLayout.png)
+
+Taking advantage of the space between the pins of the connector, I began the rearrange the components. This has compacted the footprint a lot, but will require a careful order when assembling. I have also added in some placeholder  mounting holes.
+
+![Arranged PCB Layout](images/arrangedLayout.png)
+
+![Arranged PCB Layout Render](images/arrangedPCBRender.png)
+
+**Total time spent: 3.5h**
