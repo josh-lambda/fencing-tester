@@ -404,4 +404,8 @@ Taking advantage of the space between the pins of the connector, I began the rea
 
 ![Arranged PCB Layout Render](images/arrangedPCBRender.png)
 
-**Total time spent: 3.5h**
+Working on the footprints and layout a bit further we can get to something like this:
+
+![renderRender](images/actualyRendered.png)
+
+**Total time spent: 4h**
