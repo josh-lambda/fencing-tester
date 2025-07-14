@@ -409,3 +409,23 @@ Working on the footprints and layout a bit further we can get to something like 
 ![renderRender](images/actualyRendered.png)
 
 **Total time spent: 4h**
+
+## July 14th
+
+### Packaging
+
+Working off of the PCB from last session, this is getting close to production. All that is left is to route traces, and design a housing to be 3D printed.
+
+Currently, the main issue is adapting the unit to allow for the weapon end of a foil body wire to be connected. This poses an issue for a few reasons. First, there is limited space on the PCB to add the extra connector. Second, the 3mm plug of the foil connector poses many issues. It is almost impossible to obtain from suppliers, with the closest available off of aliexpress being 2.5 & 3.5mm audio jacks.
+
+Because of this, I have two main options: use panel mount connectors on a section of the housing that is raised above the rest vertically. OR create a plug adapter to convert to the foil connector when needed. The second option is preferable from a housing perspective. The main issue with the second option is that it has risk of increasing the resistance of the path leading to false threshold detection for resistance measurement. However, this should be possible to account for in code since the resistance of the adapter would be fixed.
+
+By rearranging the layout of the resistors to the gap in the centre, it is possible to move the connector to the side leaving space to add the second pin of the body wire connector, reusing the 4mm connector for pin 3. I have found a panel mount connector for the 3mm which should hopefully work. Not being PCB mount allows for better alignment with the existing height of the other connectors.
+
+![Rearranged layout](images/rearangedConnecotres.png)
+
+Connecting most of the data connections I got something like this:
+
+![Most data line connected](images/pcbProgress.png)
+
+**Total time spent: 2.5h**

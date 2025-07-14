@@ -1,4 +1,4 @@
-25219468968996369
+25215965640202735
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -59219,20 +59219,6 @@ heatsink
 0
 0
 0
-Importer
-ESP32C6WROOM1UN8
-ESP32-C6-WROOM-1U-N8
-Integrated Circuit
-0
-37
-37
-Importer
-NE555DR
-D (R-PDSO-G8)
-Integrated Circuit
-0
-8
-8
 Inductor_SMD
 L_6.3x6.3_H3
 Choke, SMD, 6.3x6.3mm 3mm height
