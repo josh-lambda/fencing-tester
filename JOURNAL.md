@@ -429,3 +429,15 @@ Connecting most of the data connections I got something like this:
 ![Most data line connected](images/pcbProgress.png)
 
 **Total time spent: 2.5h**
+
+## July 16th
+
+### Working on PCB
+
+I continued routing all the data lines and began working on power. The routing is a ratsnest and I am ashamed to publish it. This is primarily due to only having two layers. I started with two because i through it would be possible, and wanted to stay under the $2 price cap for JLC.
+
+Working from this, I have completed all of teh routing and removed all of the silkscreen collisions.
+
+![Completed PCB](images/pcbDone.png)
+
+**Total time spent: 2h**
