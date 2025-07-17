@@ -441,3 +441,23 @@ Working from this, I have completed all of teh routing and removed all of the si
 ![Completed PCB](images/pcbDone.png)
 
 **Total time spent: 2h**
+
+## July 17th
+
+### Finishing PCB
+
+I fixed up the display mounting holes, and resolved the last two ground plane connection issues to satisfy the DRC. I then checked the PCB on JLC to confirm the details for the order, and get it ready to submit.
+
+I then started contemplating the USB-C port, which was teh one element I was concerned about hand soldering due to the small tabs and close spacing. I was fortunate enough to find a through hole variant with stock that I could use instead. This will work much better and eliminate the concern around possibly needing PCBA for a single connector. (I have no prior experience soldering SMD and did not want to gamble)
+
+![Final PCB](images/finalPCB.png)
+
+### Housing
+
+Having completed the PCB, I exported the design files and started working on a housing for the device. Thankfully, I already have models for all the PCB components. This meant the only thing I will have to create from scratch is the display CAD. However, the Aliexpress listing has most of the dimensions for once.
+
+![Closed Initial Box](images/initialClosedBox.png)
+
+![Open Initial Box](images/initialBoxOpen.png)
+
+**Total time spent: 1.5h**
