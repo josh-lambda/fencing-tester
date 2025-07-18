@@ -461,3 +461,33 @@ Having completed the PCB, I exported the design files and started working on a h
 ![Open Initial Box](images/initialBoxOpen.png)
 
 **Total time spent: 1.5h**
+
+## July 18th
+
+### Working on CAD
+
+I completed the CAD for the display, and put it into the assembly. This lead me to realise the mounting holes on the PCB were misaligned.
+
+![Misaligned Holes](images/misalignedDisplayMount.png)
+
+![Display Installed](images/cadDisplay.png)
+
+As such, I updated the PCB based on how offset the CAD was. I then modified the top cover to expose the display. This raised the issue that I failed to make the display centered. This was rectified.
+
+I then added cutouts for all of the buttons, switches and the USB-C connector. The tolerances on these will be adjusted and finalised once I have the assembled PCB. The function button looks short in this version of the CAD. That is because I will be ordering a longer button but KiCAD only had up to the length you see in the CAD. All this leaves is to add the 3mm connection.
+
+![Full Housing](images/fullHousing.png)
+
+Creating the 3mm connector:
+
+![3mm Plug](images/3mm.png)
+
+Then assembling it into a slot on the housing:
+
+![Housing with 3mm](images/housed3mm.png)
+
+### Code
+
+I began working on the code to run the unit. Today I defined all of the IO, started implementing the display, implemented weapon selection, and started on some other functions.
+
+**Total time spent: 3h**
