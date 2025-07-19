@@ -491,3 +491,23 @@ Then assembling it into a slot on the housing:
 I began working on the code to run the unit. Today I defined all of the IO, started implementing the display, implemented weapon selection, and started on some other functions.
 
 **Total time spent: 3h**
+
+## July 19th
+
+### Working on software
+
+I continued working on the programming for the ESP. I focused on putting together the logic for the resistance checking. This was simple, just needing to calculate it from a voltage divider after adjusting the analogue scale into a voltage from the 3.3v reference of the chip.
+
+I added a helper functions to calculate the voltage and check the resultant value to reduce code footprint and spaghetti. These then fed into a function that calls everything to check. I am waiting to fully define all the graphics until I have the rest of the code fleshed out. I also will tweak the graphics a bit after I can visually check them.
+
+I completed functions to set all the relays and GPIOs for each testing mode.
+
+After finishing the foundation for the resistance checking, I worked on the code for manual weapon readout. This included another helper to set the relays. I also added a logic set to check the weapon and then read each weapon input pin and the lame to see off-target, hit, and no-code. This is then written out to a variable for storing weapon state.
+
+The relays have been set to initialisse for the generator, but will change when used. I also added helpers to set the relays for different signal states.
+
+I am now realising that a couple of these inputs probably should have had pull downs on them...
+
+Doing the generator, I also noticed that I am accidentally pulling the B plugs to 3.3v through the voltage divider. As such, I am going to need to think about how to rectify this.
+
+**Total time spent: 1.5h**
