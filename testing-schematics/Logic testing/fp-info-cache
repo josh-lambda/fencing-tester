@@ -1,4 +1,4 @@
-25215965640202735
+25219471476571696
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -55986,6 +55986,13 @@ Custom
 2
 1
 Custom
+AMPHENOL_10164227-1001A1RLF
+
+
+0
+100
+100
+Custom
 Fencing Plug
 
 
@@ -55999,6 +56006,13 @@ ESP32-C6-WROOM-1U-N8
 0
 37
 37
+Custom
+R_1206_3216Metric_Pad1.30x1.75mm_HandSolder_Text
+Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC-7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+resistor handsolder
+0
+2
+2
 Custom
 Untitled
 

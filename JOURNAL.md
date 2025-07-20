@@ -511,3 +511,23 @@ I am now realising that a couple of these inputs probably should have had pull d
 Doing the generator, I also noticed that I am accidentally pulling the B plugs to 3.3v through the voltage divider. As such, I am going to need to think about how to rectify this.
 
 **Total time spent: 1.5h**
+
+## July 20th
+
+### BOM
+
+I revised the BOM to be up to date with the current parts. ia slo removed old links and replaced them with new ones.
+
+#### Schematic
+
+Yesterday, I identified some issues with the schematic. These included needing some pull down resistors on inputs, however the main issue was with the relays.
+
+INvestigating the best course of action with the relays, the foremost solution I am considering is adding another relay to buffer the connection to the B connectors:
+
+![Extra relay schematic](images/extraRelay.png)
+
+While I don't want to add another relay, it seems to be the best way of preventing possible damage to the ESP. It is not possible to easily guard against random voltages being sent into the esp other than by adding a relay as the polarity and voltage of the source are unknown and would change between fencing boxes so a diode or basic transistor wouldn't work reliably.
+
+I finished these changes and rerouted the PCB to match.
+
+**Total time spent: 3h**
