@@ -528,6 +528,8 @@ INvestigating the best course of action with the relays, the foremost solution I
 
 While I don't want to add another relay, it seems to be the best way of preventing possible damage to the ESP. It is not possible to easily guard against random voltages being sent into the esp other than by adding a relay as the polarity and voltage of the source are unknown and would change between fencing boxes so a diode or basic transistor wouldn't work reliably.
 
-I finished these changes and rerouted the PCB to match.
+I added the extra relay to the PCB, and began rerouting the signals to match the changes. I also changed the footprint of the diodes to be surface mount and increased teh size of capacitors to 0805. Adding the extra resistors I changed the board layout to move the resistors closer to where they needed to be. This cleared up the wiring a lot as I no longer needed races running across the board only to have a resistor going to the ground plane.
+
+![New layout](images/newLayout.png)
 
 **Total time spent: 3h**
