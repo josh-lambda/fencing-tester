@@ -4801,10 +4801,6 @@
 		(uuid "b55851fe-e57f-4a13-be56-3d6be70c48af")
 	)
 	(no_connect
-		(at 25.4 82.55)
-		(uuid "bf9e85e7-5e7e-477b-978f-799713407fa9")
-	)
-	(no_connect
 		(at 40.64 121.92)
 		(uuid "e5701ed4-aa15-49ea-b27e-5795c997e244")
 	)
@@ -5494,6 +5490,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "REL5"
+		(shape input)
+		(at 25.4 82.55 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "08d36e24-dee6-4a89-acd4-f05ad8093d2b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.7582 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)

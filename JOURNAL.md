@@ -4,6 +4,7 @@ author: "Josh-Lambda"
 description: " "
 created_at: "2025-05-31"
 ---
+### Accumulated Total Time: 45h
 
 ## May 31st: Initial Research & Component Selection
 
@@ -504,7 +505,7 @@ I completed functions to set all the relays and GPIOs for each testing mode.
 
 After finishing the foundation for the resistance checking, I worked on the code for manual weapon readout. This included another helper to set the relays. I also added a logic set to check the weapon and then read each weapon input pin and the lame to see off-target, hit, and no-code. This is then written out to a variable for storing weapon state.
 
-The relays have been set to initialisse for the generator, but will change when used. I also added helpers to set the relays for different signal states.
+The relays have been set to initialise for the generator, but will change when used. I also added helpers to set the relays for different signal states.
 
 I am now realising that a couple of these inputs probably should have had pull downs on them...
 
@@ -514,7 +515,7 @@ Doing the generator, I also noticed that I am accidentally pulling the B plugs t
 
 ## July 20th
 
-### BOM
+### BOM Revisions
 
 I revised the BOM to be up to date with the current parts. ia slo removed old links and replaced them with new ones.
 
@@ -533,3 +534,70 @@ I added the extra relay to the PCB, and began rerouting the signals to match the
 ![New layout](images/newLayout.png)
 
 **Total time spent: 3h**
+
+## July 21st
+
+### PCB
+
+I finished up the last couple of issues from yesterday making sure all of the ground plane was connected. I also fixed some minor silkscreen clipping and under minimum silkscreen heights.
+
+![Final render](images/finalRender.png)
+
+None of the changes have moved the physical positions of any connectors or switches so there do not need to be changes to the CAD because of this.
+
+![New silkscreening](images/silkscreen.png)
+
+### Working on Code
+
+Now that I know how the extra relay is implemented, I can factor it into the program. We will set R5 to be open all of the time unless it is being used for signals. R4 can then be set high when signal generation is being used and normal when resistance mode is active.
+
+(Example of test signal)
+![Example code](images/signalExample.png)
+
+Now that the functions to send all the signals are complete, with the extra relay integrated, I can start working on the mode to manage device states and input.
+
+By attaching an interrupt to the USE button being pressed, we can handle input next time the program loops without the risk of it being missed. By attaching interrupts to the weapon select switches we can achieve the same thing with the weapon detection. For weapon changes, we will update the stored weapon type while user input will be a flag that gets cleared when processed. While the weapon update does not need two functions now, it will be useful when dealing with updates to the UI.
+
+![Code snippet 1](images/code1.png)
+![Code snippet 2](images/code2.png)
+
+I have also swapped the control variables to enums so there are no more magic numbers!
+
+Working on the main loop, it will check what mode it is in and then run the appropriate functions. If a function needs to it will then check for weapon.
+
+![Main Loop](images/code3.png)
+
+The resistance tester just needs to test the resistance each loop. Likewise with the weapon tester.
+
+The signal generator needs to loop through the possible signals and display each one. By incrementing and modding we can keep in in a loop.
+
+![Épée generator code](images/code4.png)
+
+Now that the functional code is done, I can begin work on the graphics. I am aiming to get all of the graphics approximated but may have to make changes after production as I have no way of testing until then. The resistance code will show an icon to indicate a pass/fail for each wire.
+
+![Resistance screen](images/resScreen.png)
+
+The weapon test page will show a box indicating the lamp. None for no light, outline for off target, and filled for hit.
+
+![Weapon test page](images/weaponScreen.png)
+
+Adding display to the generator is just a matter of moving the lamp logic to s seperate function and calling it as needed.
+
+![Lamp code](images/lampCode.png)
+![Generator test page](images/genPage.png)
+
+I have added the delays for the main loop inside the test functions. This is because each one needs to run at a different frequency (e.g. the signal generator should run every few seconds while the weapon tester should go continuously). Additionally, I have fixed all of the errors from the code (including the ones in the screenshots).
+
+Finally, I have added a status bar at the top of the screen to show the current mode and weapon. This is drawn by a drawHeader function, and also runs when the new "clearScreen" function is run. clearScreen resets the display screen and draws the header. I have increased the SCREEN_TOP variable to account for the header. As I had already used the variable when writing the other screens everything will update for the content above it.
+
+I think this is all of the changes to the code I needed to make. Tasks remaining until submission are
+
+- Add lame tab to housing
+- Fix up BOM csv
+- Readme
+- Readme BOM table
+- Tally of total time spent
+
+I'll go ahead and fill out the last of those today, putting it at the top of this file as requested. I'm currently sitting at a nice 45. Both a multiple of 5 & 9.
+
+**Total time spent: 4h**
