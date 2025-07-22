@@ -8931,7 +8931,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F"
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F-Y"
 			(at 138.43 45.72 0)
 			(effects
 				(font
@@ -11789,7 +11789,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F"
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F-Y"
 			(at 226.06 45.72 0)
 			(effects
 				(font
@@ -12915,7 +12915,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F"
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F-Y"
 			(at 226.06 81.28 0)
 			(effects
 				(font
@@ -13669,7 +13669,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F"
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F-Y"
 			(at 97.79 45.72 0)
 			(effects
 				(font
@@ -15135,7 +15135,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F"
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F-Y"
 			(at 179.07 45.72 0)
 			(effects
 				(font
@@ -15372,7 +15372,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F"
+		(property "Footprint" "Relay_SMD:Relay_DPDT_Omron_G6K-2F-Y"
 			(at 274.32 45.72 0)
 			(effects
 				(font

@@ -4,7 +4,7 @@ author: "Josh-Lambda"
 description: " "
 created_at: "2025-05-31"
 ---
-### Accumulated Total Time: 45h
+### Accumulated Total Time: 48h
 
 ## May 31st: Initial Research & Component Selection
 
@@ -601,3 +601,38 @@ I think this is all of the changes to the code I needed to make. Tasks remaining
 I'll go ahead and fill out the last of those today, putting it at the top of this file as requested. I'm currently sitting at a nice 45. Both a multiple of 5 & 9.
 
 **Total time spent: 4h**
+
+## July 22nd
+
+### Working on CAD & Housing
+
+I changed the hosuing to have a bold all the way through to properly retain the lid.
+
+Keeping in mind that I also need to add a tab for the lame, I also added a cutout to mount it within.
+
+![Completed Case](images/caseDone.png)
+
+### Documentation & BOM
+
+Having now completed all of the design aspects of the project, I can return to the list of final things I need to do.
+
+- ~~Add lame tab to housing~~
+- Fix up BOM csv
+- Readme
+- Readme BOM table
+- ~~Tally of total time spent~~
+
+As such, I will finish off the BOM, including prices and the last couple of links. Please note that all prices in the BOM are AUD.
+
+I have come into some issues sourcing the ESP32-C6-WROOM-1U. Primarily that LCSC only have the non U variant which uses a larger footprint and is incompatible with the board. I should have checked this earlier, but it means I'm stuck ordering from Mouser or Digikey. Neither of which are options I like.
+
+- ~~Fix up BOM csv~~
+
+I have also completed the BOM for the readme. Now all that is left is filling out the details in the readme about the project.
+
+- ~~Readme~~
+- ~~Readme BOM table~~
+
+Now that all of the requirements are met, I am ready to put the project in for submission.
+
+**Total time spent: 3h**
