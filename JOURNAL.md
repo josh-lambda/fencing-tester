@@ -643,7 +643,7 @@ Now that all of the requirements are met, I am ready to put the project in for s
 
 The project was approved, so I have been putting the orders in. In doing so, I found a supplier on AliExpress with choice shipping on bolts - I somehow missed them before. I plan on swapping to them to save some money on parts. All of the orders should arrive JUST before the deadline 🤞.
 
-My main issue has been one of the components being flagged by AliExpress whenever I attempt to pay for it. 
+My main issue has been one of the components being flagged by AliExpress whenever I attempt to pay for it :(.
 
 I am ready to put on all the prints but the paranoid bit of me wants to wait to check component tolerances after they arrive.
 
