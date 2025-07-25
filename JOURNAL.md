@@ -636,3 +636,17 @@ I have also completed the BOM for the readme. Now all that is left is filling ou
 Now that all of the requirements are met, I am ready to put the project in for submission.
 
 **Total time spent: 3h**
+
+## July 25th
+
+### General Things
+
+The project was approved, so I have been putting the orders in. In doing so, I found a supplier on AliExpress with choice shipping on bolts - I somehow missed them before. I plan on swapping to them to save some money on parts. All of the orders should arrive JUST before the deadline 🤞.
+
+My main issue has been one of the components being flagged by AliExpress whenever I attempt to pay for it. 
+
+I am ready to put on all the prints but the paranoid bit of me wants to wait to check component tolerances after they arrive.
+
+I have restructured some of the files to they make a bit more sense naming wise. (All my PCB schematics were in a file named 'testing' I thought would just be for mockups, etc)
+
+**Total time spent: 1h**
