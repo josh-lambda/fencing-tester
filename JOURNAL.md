@@ -4,7 +4,7 @@ author: "Josh-Lambda"
 description: " "
 created_at: "2025-05-31"
 ---
-### Accumulated Total Time: 48h
+### Accumulated Total Time: 49h
 
 ## May 31st: Initial Research & Component Selection
 
@@ -648,5 +648,7 @@ My main issue has been one of the components being flagged by AliExpress wheneve
 I am ready to put on all the prints but the paranoid bit of me wants to wait to check component tolerances after they arrive.
 
 I have restructured some of the files to they make a bit more sense naming wise. (All my PCB schematics were in a file named 'testing' I thought would just be for mockups, etc)
+
+UPDATE: I got the order to go through by removing from and re-adding to cart. So much for advanced threat detection.
 
 **Total time spent: 1h**
